@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="apiBook">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>App que enlista y guarda libros</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+</head>
+<body ng-controller="mainController">
+    <div class="container">
+
+        <div class="jumbotron text-center">
+            <h1>Libros añadidos <span class="label label-info">{{ books.length }}</span></h1>
+        </div>
+
+        <div id="todo-list" class="row">
+            <div class="col-lg-12">
+              <h3 class="col-lg-1">Eliminar</h3>
+              <h3 class="col-lg-3">Titulo</h3>
+              <h3 class="col-lg-5">Descripción</h3>
+              <h3 class="col-lg-3">Autor</h3>
+                <div class="checkbox" ng-repeat="todo in books">
+                    <label>
+                        <input type="checkbox" ng-click="deleteBook(todo._id)" class="col-lg-1">
+                        <span class="col-lg-3">{{ todo.titulo }}</span>
+                        <span class="col-lg-5">{{ todo.descripcion }}</span>
+                        <span class="col-lg-3">{{ todo.autor }}</span>
+                    </label>
+                </div>
+
+            </div>
+        </div>
+        <div id="todo-form" class="row">
+            <div class="col-lg-12 text-center">
+                <form>
+                    <div class="form-group">
+                        <div class="col-lg-3">
+                            <input type="text" class="form-control input-lg text-center" placeholder="Titulo del libro" ng-model="formData.titulo">
+                        </div>
+                        <div class="col-lg-4">
+                          <input type="text" class="form-control input-lg text-center" placeholder="Breve descripción" ng-model="formData.descripcion">
+                        </div>
+                        <div class="col-lg-3">
+                        <input type="text" class="form-control input-lg text-center" placeholder="Autor" ng-model="formData.autor ">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-lg" ng-click="createBook()">Añadir</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
