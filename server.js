@@ -6,7 +6,7 @@ var express = require('express'),
 	methodOverride = require('method-override'),
 	app = express();
 
-mongoose.connect('mongodb://localhost:27017/angular-book');
+mongoose.connect('mongodb://localhost:27017/angular-library');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 app.use(bodyParser.json());

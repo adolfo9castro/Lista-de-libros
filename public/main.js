@@ -38,5 +38,39 @@
 				console.log('Error' + data);
 			});
 		}
+
+		//authors
+		h.get('/api/authors')
+			.success(function(data) {
+				s.authors = data;
+				console.log(data);
+			})
+			.error(function(data) {
+				console.log('Error' + data);
+			});
+
+		s.createAuthor = function() {
+			h.post('/api/authors', s.formData)
+			.success(function(data) {
+				s.formData = {};
+				s.authors = data;
+				console.log(data);
+			})
+			.error(function(data) {
+				console.log('Error' + data);
+			});
+		}
+
+		s.deleteAuthor = function(id) {
+			h.delete('/api/authors/' + id)
+			.success(function(data) {
+				s.authors = data;
+				console.log(data);
+			})
+			.error(function(data) {
+				console.log('Error' + data);
+			});
+		}
+
 	}]);
 }());

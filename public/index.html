@@ -10,27 +10,27 @@
     <div class="container">
 
         <div class="jumbotron text-center">
-            <h1>Libros añadidos <span class="label label-info">{{ books.length }}</span></h1>
+            <h1>Librería</h1>
         </div>
 
-        <div id="todo-list" class="row">
+        <div id="book-list" class="row">
             <div class="col-lg-12">
               <h3 class="col-lg-1">Eliminar</h3>
               <h3 class="col-lg-3">Titulo</h3>
               <h3 class="col-lg-5">Descripción</h3>
               <h3 class="col-lg-3">Autor</h3>
-                <div class="checkbox" ng-repeat="todo in books">
+                <div class="checkbox" ng-repeat="book in books">
                     <label>
-                        <input type="checkbox" ng-click="deleteBook(todo._id)" class="col-lg-1">
-                        <span class="col-lg-3">{{ todo.titulo }}</span>
-                        <span class="col-lg-5">{{ todo.descripcion }}</span>
-                        <span class="col-lg-3">{{ todo.autor }}</span>
+                        <input type="checkbox" ng-click="deleteBook(book._id)" class="col-lg-1">
+                        <span class="col-lg-3">{{ book.titulo }}</span>
+                        <span class="col-lg-5">{{ book.descripcion }}</span>
+                        <span class="col-lg-3">{{ book.author }}</span>
                     </label>
                 </div>
 
             </div>
         </div>
-        <div id="todo-form" class="row">
+        <div id="book-form" class="row">
             <div class="col-lg-12 text-center">
                 <form>
                     <div class="form-group">
@@ -41,13 +41,48 @@
                           <input type="text" class="form-control input-lg text-center" placeholder="Breve descripción" ng-model="formData.descripcion">
                         </div>
                         <div class="col-lg-3">
-                        <input type="text" class="form-control input-lg text-center" placeholder="Autor" ng-model="formData.autor ">
+                        <input type="text" class="form-control input-lg text-center" placeholder="Autor" ng-model="formData.author ">
                         </div>
                     </div>
                     <button class="btn btn-primary btn-lg" ng-click="createBook()">Añadir</button>
                 </form>
             </div>
         </div>
+
+        <br />
+
+        <div id="author-list" class="row">
+            <div class="col-lg-12">
+              <h3 class="col-lg-1">Eliminar</h3>
+              <h3 class="col-lg-5">Nombre</h3>
+              <h3 class="col-lg-6">Nacionalidad</h3>
+                <div class="checkbox" ng-repeat="author in authors">
+                    <label>
+                        <input type="checkbox" ng-click="deleteAuthor(author._id)" class="col-lg-1">
+                        <span class="col-lg-5">{{ author.name }}</span>
+                        <span class="col-lg-6">{{ author.nationality }}</span>
+                    </label>
+                </div>
+
+            </div>
+        </div>
+        <div id="author-form" class="row">
+            <div class="col-lg-12 text-center">
+                <form>
+                    <div class="form-group">
+                        <div class="col-lg-5">
+                            <input type="text" class="form-control input-lg text-center" placeholder="Nombre del autor" ng-model="formData.name">
+                        </div>
+                        <div class="col-lg-5">
+                          <input type="text" class="form-control input-lg text-center" placeholder="Nacionalidad" ng-model="formData.nationality">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-lg" ng-click="createAuthor()">Añadir</button>
+                </form>
+            </div>
+        </div>
+
+
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
